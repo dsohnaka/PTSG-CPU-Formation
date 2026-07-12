@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "PTSG-CPU-Formation — The Five Impossibilities: The Pre-Launch Council",
+    "title_ja": "PTSG-CPU-Formation — 五つの不可能: 設立前会議",
+    "date": "2026-07-12",
+    "date_span": "2026-07-10 to 2026-07-12 (repository committed 2026-07-12)",
+    "session_type": "architect × amanuensis founding session: ISA drafting, computability audit and correction, spin-off ruling, governance, repository founding",
+    "participants": [
+      {
+        "name": "Tsuneo Ohnaka",
+        "name_ja": "大中恒夫",
+        "role": "FPGA Architect; sole design authority; all rulings (F-F9/F-F12/F-F13 Fixed 2026-07-11; F-T6 deferral ratified; Measured-not-promised governance; naming)",
+        "role_ja": "FPGAアーキテクト;唯一の決定権者;全裁定"
+      },
+      {
+        "name": "Claude (amanuensis)",
+        "name_ja": "Claude（祐筆）",
+        "role": "ISA drafting (Command × Phase worksheet v0.1→v0.3), the computability audit and its public correction, governance proposals, repository skeleton, this archive",
+        "role_ja": "ISA起草（v0.1→v0.3）、計算可能性監査と公開訂正、統治提案、リポジトリ骨格、本保管"
+      }
+    ],
+    "topic": "The session in which PTSG-CPU-Formation was conceived, audited, and founded. The architect asked what the drafted Formation ISA could NEVER be as a general-purpose CPU — impossibility, not inefficiency. The amanuensis, auditing from the behavior table alone, answered with five impossibilities, each the shadow of a doctrine. The architect then revealed the PTSG-Core repositories; two impossibilities (return-address capture, interrupts) were falsified — the Core already held the holding-register/stack machinery and boundary-quantized Insertion. The corrected audit became the founding insight: only external program ownership is Core law; the rest is chooseable Formation doctrine. Ruling: spin off as PTSG-CPU-Formation, the master data ISA, with PTSG-WPMS-Formation as its first subtraction profile. The session also fixed the split-stack doctrine, the read-only quartet SN/SSS/K/I, pointer-indirection admission (F-F13), the Measured-not-promised governance rule, the industrial north-star vision, and the repository itself.",
+    "topic_ja": "PTSG-CPU-Formationが構想され、監査され、設立されたセッション。設計者は起草中のFormation ISAが汎用CPUとして「決してなり得ないもの」——非効率ではなく不可能——を問うた。祐筆は挙動表のみから五つの不可能で答え、各々を教義の影に帰した。設計者がPTSG-Coreリポジトリを開示すると、二つの不可能（戻り番地捕獲・割り込み）が反証された——保持レジスタ/スタック機構と境界量子化Insertionは既にCoreにあった。訂正済み監査が設立の洞察となる: Core法は外部プログラム所有のみ、残りは選択可能なFormation教義。裁定: マスターデータISAたるPTSG-CPU-Formationとして暖簾分けし、PTSG-WPMS-Formationを最初の引き算プロファイルとする。セッションはさらにスタック二分教義、読出し専用カルテット、ポインタ間接参照の入場（F-F13）、実測主義統治、産業北極星、リポジトリ自体を確定した。",
+    "status": "FOUNDED — repository committed with skeleton + ISA worksheet v0.3; Layer 1 Chapter 1 drafted alongside this trace; Chapters 2–5, subtraction profile hand-off, and first Layer 4 measurement pending.",
+    "status_ja": "設立済——骨格＋v0.3コミット済;第1章ドラフト併走;第2〜5章・プロファイル引き渡し・最初の実測は残件。",
+    "companion_traces": "Rhymes deliberately with the Core's own birth-from-WPMS trace (see Hook F for the Core-side inventory/filename mismatch to be settled). Primary artifacts: _worksheets/PTSG_CPU_Formation_Command_Phase_Table_v0.3.xlsx; the repository skeleton; _worksheets/Design_Brief_Top_HTML.md; the Layer 1 Chapter 1 draft.",
+    "license": "CC0 1.0 Universal (Public Domain)",
+    "format_version": "1.0",
+    "intended_use": "Structured for direct ingestion by a language-model context. A reader who loads this file understands why the Formation exists (the corrected computability audit), what was ruled and why (F-F1..F-F13, F-T1..F-T6), the governance that binds future work (table-before-RTL; Measured, not promised), and where to resume (hooks A–F). Replaying this dialogue with another model collaborator should arrive somewhere recognizably equivalent — that reproducibility is the point."
+  },
+  "decision_points": [
+    {
+      "id": 1,
+      "point": "Where does arithmetic live?",
+      "alternatives": "(a) Extend the Core RTL with a datapath; (b) delegation boundary: mode 0 Core-owned and frozen, modes >= 1 Formation-owned, issued without decoding.",
+      "chosen": "(b) — F-F1, the delegation boundary.",
+      "rationale": "The Core's identity (small, frozen, normative, mode-0-complete) survives untouched; future formations may assign different semantics to the same mode space; the boundary later proved to be a resource-accounting and publicity firewall as well. The Core-Formation separation pattern applied recursively to the ISA itself."
+    },
+    {
+      "id": 2,
+      "point": "Which execution bands may Formation instructions inhabit?",
+      "alternatives": "FG-legal arithmetic; Q-legal arithmetic; window-only citizenship.",
+      "chosen": "Window-only (F-F2: FG encounter = Error HALT, extending C3-F23) with the BG-compute / Q-commit doctrine (F-F3: arithmetic BG-only; CMT the sole Q citizen).",
+      "rationale": "The foreground remains a bare sequence of Stay durations — the timing chart stays the program text. Q's trailing-edge firing (C4-F11) turns the page-swap commit into a structural zero-zipper-noise guarantee; double-buffering falls out of existing band semantics with zero new timing machinery."
+    },
+    {
+      "id": 3,
+      "point": "The Stay-length mystery (architect's doctrine, correcting the amanuensis's draft).",
+      "alternatives": "Stay Set carries the duration; Stay Set carries no parameter.",
+      "chosen": "Stay Set carries NO parameter — it arms the counter and defines only when the stay began; the duration is revealed only at the Stay instruction, after all next-packet housekeeping is done.",
+      "rationale": "The window's philosophy is load-bearing: chores first, rest revealed last. Consequence: a minimum packet length exists (architect's estimate ~32 waves); the 1-wave packet mechanism is deliberately deferred (Tie F-T1)."
+    },
+    {
+      "id": 4,
+      "point": "The computability audit: what can this machine never be?",
+      "alternatives": "Audit for missing features (efficiency); audit for impossibilities (architecture).",
+      "chosen": "Impossibility audit, from the v0.1 behavior table alone. Answer: five impossibilities — (i) native conditional branching, (ii) return-address capture (no subroutines/recursion), (iii) read-your-own-writes within a window, (iv) self-hosting (program memory owned outside the machine), (v) interrupts — each traced to a doctrine (data-blindness; chart readability; shadow-only writes; the music-box doctrine; jitter-freedom).",
+      "rationale": "CPU essence (decide, remember the way back, rewrite yourself, be interrupted) maps one-to-one onto determinism-destroying devices; general-CPU-hood and jitter-freedom trade off structurally. Preserved verbatim because the audit's shape survived its factual corrections and became Chapter 1's spine."
+    },
+    {
+      "id": 5,
+      "point": "The correction: the repository falsifies two impossibilities.",
+      "alternatives": "Defend the audit; correct it publicly.",
+      "chosen": "Public correction after reading Core Chapters 2-3: impossibility (ii) FALSE — the holding register auto-saves {SN return address, loop counter, base address} on Branch-taken/Call/Base Set/Insertion, Return restores, the external stack bus delegates depth to the Formation; impossibility (v) FALSE — Insertion exists and is deferred to Stay-timeup: interrupts are quantized to the deterministic grid, not absent. Further: (i) has a front-door solution (ALU flags exported as Condition lanes); (iii) is Formation doctrine, not Core law. Only (iv) is Core law.",
+      "rationale": "The corrected audit is the spin-off's justification: the Core already carries the expensive machinery; what remains between this ISA and CPU-hood is chooseable doctrine. The audit failed correctly, and the failure was the product."
+    },
+    {
+      "id": 6,
+      "point": "The spin-off ruling.",
+      "alternatives": "Keep the ISA inside WPMS-Formation; spin off as an independent master ISA.",
+      "chosen": "Spin off as PTSG-CPU-Formation — the first data-processing PTSG, the MASTER data ISA — with the amanuensis retained; PTSG-WPMS-Formation is produced from it by subtraction (and minimal addition) inside FPGA Spectrum Engine and handed to the WPMS amanuensis. Recorded as F-F12 (Fixed 2026-07-11, with the v0.1-to-v0.2 retitle).",
+      "rationale": "The three-generation recursion — WPMS births generic children and becomes each child's first customer — repeats by design, not accident."
+    },
+    {
+      "id": 7,
+      "point": "The split-stack doctrine.",
+      "alternatives": "(a) A unified LIFO shared by control contexts and data words; (b) two stacks, two owners.",
+      "chosen": "(b) — F-F9 (Fixed 2026-07-11). Control stack: entirely the Core's (Ch3 s3.7 holding register + s3.8 external stack bus; push/pop policy remains Core Tie C3-T6, not preempted). Data stack: new datapath-owned LIFO of Accm words via M2 PSH/POP; SP hidden; overflow/underflow = Error HALT (F-F11). One BRAM in two regions, dual ports, or parallel blocks: Implementation Arena (dual-port/parallel exploitation explicitly endorsed by the architect).",
+      "rationale": "A unified stack couples the Core's save/restore protocol to program data discipline and makes the timing chart's readability depend on runtime stack contents."
+    },
+    {
+      "id": 8,
+      "point": "The read-only source quartet.",
+      "alternatives": "Ad-hoc source additions; a named quartet with normative read semantics.",
+      "chosen": "F-F10: SN/SSS/K/I — now, here, when, which. SN keeps the name State Number (the foreground is an FSM; the state label is the richer truth); SSS is normatively a Formation-latched copy taken at window start (the Core's C3-F25 register is short-lived and Core-invisible but explicitly copyable). Read semantics: value at the reading instruction's execution clock; realization (direct mux vs transparent capture) is Arena; capture-distribution into R0-R3 is the architect's sanctioned fallback if encoder depth threatens timing closure.",
+      "rationale": "Four sources, four temporal characters; time itself becomes an operand while the condition stays outside (flags to Condition lanes, the front door). Idioms: SN + offset to WJV = relative computed dispatch (relocatable sub-sequences); SSS-indexed PPM lookup = one BG routine serving many Stays (window-vectored preparation)."
+    },
+    {
+      "id": 9,
+      "point": "Pointer indirection through the front gate.",
+      "alternatives": "Keep ADRS-as-STA-destination a watchpoint Tie; admit it for the CPU profile.",
+      "chosen": "F-T4 resolved into F-F13 (Fixed 2026-07-11): ADRS is a LEGAL STA destination in the CPU profile; subtraction profiles may re-forbid (WPMS expected to). The second named CPU-attractor gate, F-T5 (register-source Jump/Branch legality in FG), remains an open Tie.",
+      "rationale": "Computed addressing is a data machine's bread and butter; it enters by explicit ruling with the profile escape hatch preserved — the turnstile pattern working as designed."
+    },
+    {
+      "id": 10,
+      "point": "Resource-figure governance: Measured, not promised.",
+      "alternatives": "Advertise a resource target; stay silent until measured.",
+      "chosen": "Silence until measured: no forward-looking resource figure anywhere in this repository; figures exist only as Layer 4 measurements pinned to a named revision, device, toolchain version, and synthesis configuration. Enforced in CONTRIBUTING (forward-looking-figure PRs declined) and audited mechanically over the seed documents. The frozen Core, by contrast, traces its figures version by version in its own repository.",
+      "rationale": "Born from the Core's own experience (an early 'few hundred / first compile 235' meeting v1.1's law-and-teeth growth — 'the mood of an apology press conference'). A frozen body gets a weight log; a living body gets a growth record, never a weight promise. The Free Precision Floor doctrine makes advance minimalism claims self-contradictory. Both rules share one principle: numbers exist only pinned to measured versions."
+    },
+    {
+      "id": 11,
+      "point": "The industrial north star.",
+      "alternatives": "Proceed without a shared long-range vision; fix one before founding.",
+      "chosen": "Fix one before founding (the architect: 'it will weigh on every future ruling'). Adopted, with optimism and evidence separated: the empty quadrant (programmable AND cycle-deterministic; PRU-adjacent but fabric-portable, table-specified); the auditability/certification market (fully enumerated Command x Phase semantics + Layer 2 rationale traceability as dowry); boot-free software-absent control; replication economics; the AI-native claim (constrain AI to instruction lists over a verified deterministic substrate — 'the RISC-V of timing control'); Spectrum Engine synergy (phase-coherent multi-source excitation; the formal near-identity of WPMS Gaussian-packet scheduling with quantum-control pulse generation). Honest reservation: a gap becomes a market only with toolchain and silicon evidence.",
+      "rationale": "Adopted as ruling weights: keep the Core frozen; Layer 4 investment is dowry, not only music; AI-affinity is a specification property and a touchstone for every Tie."
+    },
+    {
+      "id": 12,
+      "point": "Naming the inaugural trace.",
+      "alternatives": "The architect's straight description; a slug that carries genealogy.",
+      "chosen": "The slug carries genealogy, the title carries poetry: the slug rhymes with the Core's own birth-from-WPMS trace so the three-generation recursion is legible from the Layer 2 inventories alone; 'The Five Impossibilities' names the session's intellectual heart in the title.",
+      "rationale": "File names are inventory-level documentation; the rhyme makes the ecosystem's recursion self-evident to a reader who has seen only directory listings."
+    }
+  ],
+  "themes": [
+    {
+      "theme_id": 1,
+      "title": "The audit that failed correctly",
+      "summary": "Two of five impossibilities were falsified by the repository; the falsification revealed that the Core already carried the expensive machinery and that the remaining barriers were doctrine, not law. The audit is preserved wrong-and-corrected because the correction path is the lesson."
+    },
+    {
+      "theme_id": 2,
+      "title": "The delegation boundary pays three times",
+      "summary": "Adopted for architectural hygiene, F-F1 then paid as semantics freedom (profiles may redefine modes), as a resource-accounting firewall (the Core's figures stay stable however the Formation grows), and as the mechanism of the master/profile succession (F-F12)."
+    },
+    {
+      "theme_id": 3,
+      "title": "Von Neumann at the turnstile",
+      "summary": "CPU-hood enters one shape at a time, each with its own decision ID: LIFO read-back (PSH/POP), pointer indirection (F-F13), relative computed dispatch (SN + WJV) — while random access (F-T6) and FG register-source branching (F-T5) wait outside. The machine approaches CPU-hood asymptotically and on the record."
+    },
+    {
+      "theme_id": 4,
+      "title": "Time as an operand",
+      "summary": "The quartet SN/SSS/K/I — now, here, when, which — exposes the machine's own position and time to its arithmetic while the condition stays outside (flags to Condition lanes). The machine may compute about itself without being allowed to lie to itself about time."
+    },
+    {
+      "theme_id": 5,
+      "title": "Two bodies, one principle",
+      "summary": "The frozen Core traces its figures; the living Formation promises none. 'Measured, not promised' and the Core's version-by-version trace are the same rule seen from a frozen body and a living one: numbers exist only pinned to measured versions."
+    }
+  ],
+  "resumption_hooks": [
+    {
+      "hook_id": "A",
+      "title": "Layer 1 Chapters 2-5",
+      "description": "Promote the v0.3 worksheet into normative chapters: registers & the quartet; the Formation Command x Phase table; memory architecture (PPM pages, atomic commit, routing tables, data stack); the Core interface contract (issue port, taps, value registers, Condition lanes).",
+      "starting_question": "Does the chapter split in 01_Architecture/README.md survive contact with the material?"
+    },
+    {
+      "hook_id": "B",
+      "title": "Open Ties",
+      "description": "F-T1 (1-wave packet), F-T2 (queued mode-3 writes), F-T3 (Q-band arithmetic beyond the commit family), F-T5 (register-source Jump/Branch legality in FG), F-T6 (SP visibility / random-access scratch).",
+      "starting_question": "Which Tie acquires a proven need first — and does its resolution get its own Command x Phase rows before RTL, per F-F8?"
+    },
+    {
+      "hook_id": "C",
+      "title": "The WPMS subtraction profile",
+      "description": "Hand the repository to the WPMS amanuensis; produce PTSG-WPMS-Formation by subtraction and minimal addition (shadow-PPM/CMT/RTW overlay retained; data stack optional per the Core's stack-absence clause; F-F13 expected re-forbidden).",
+      "starting_question": "What does the profile's decision register look like when keyed to this master's IDs?"
+    },
+    {
+      "hook_id": "D",
+      "title": "The Maclaurin demo and the W1 translation trace",
+      "description": "First Layer 3 instruction-list example: exp(-2*gamma) as a mode-1 MAC (Horner) sequence. First W1-style Layer 2 trace: the behavior-description-to-instruction-list translation dialogue.",
+      "starting_question": "What does the instruction-list file format need so that the translation contract (the table) and the example corpus stay mechanically linked?"
+    },
+    {
+      "hook_id": "E",
+      "title": "C5G and the first measurement",
+      "description": "Verification platform: Terasic C5G (pure Cyclone V GX fabric, no HPS — the methodological control for the fabric-resident-control claim). The first Layer 4 entry will also be the first resource figure this repository has ever stated, pinned per Measured-not-promised.",
+      "starting_question": "What belongs in the first conformance matrix — which v0.3 rows are testable before any Layer 1 chapter is finished?"
+    },
+    {
+      "hook_id": "F",
+      "title": "Housekeeping to the Core amanuensis",
+      "description": "Report the Core-side Layer 2 inventory/filename mismatch discovered during this session (the Core 02 README lists a birth-from-wpms slug; the committed file is 2026-05-12_ptsg-emancipation-from-wpms-session), so the rhyme between the two birth traces can be settled from the Core side, whichever direction is ruled.",
+      "starting_question": "Rule the canonical slug pair: birth/birth, emancipation/emancipation, or asymmetric by design?"
+    }
+  ],
+  "key_outputs_for_repository": [
+    "02_Reasoning_Traces/_worksheets/PTSG_CPU_Formation_Command_Phase_Table_v0.3.xlsx — the ISA worksheet (modes 1-3; 4 sheets; rulings of 2026-07-11 recorded)",
+    "The repository skeleton (four layers, canonical abstract, governance in README + CONTRIBUTING)",
+    "02_Reasoning_Traces/_worksheets/Design_Brief_Top_HTML.md — the Claude Design hand-off brief",
+    "01_Architecture/PTSG_CPU_Formation_Layer1_Chapter1_Scope_and_Design_Philosophy.md — drafted alongside this trace",
+    "Decision register to date: F-F1..F-F8 proposed; F-F9, F-F12, F-F13 Fixed (2026-07-11); F-F10, F-F11 proposed; F-T1, F-T2, F-T3, F-T5, F-T6 open"
+  ],
+  "closing_note": "A founding session whose intellectual center is a corrected mistake: the five impossibilities, two of them falsified by the very repository they audited. What survived is the machine's definition by negation — what it can never be is the product — and a governance that promises tables before RTL and measurements instead of numbers. The repository this council founded is the canon; this trace is its memory."
+}
