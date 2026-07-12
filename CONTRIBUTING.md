@@ -20,4 +20,4 @@ Conformance evidence against this repository's reference implementation is welco
 
 ### Resource figures / リソース数値
 
-Per the *Measured, not promised* rule (see README), pull requests adding forward-looking resource figures to any document will be declined. Measured figures belong in Layer 4, pinned to revision, device, toolchain, and configuration. / *約束せず、測って刻む*規則により、前方宣言的リソース数値を文書に加えるPRは却下される。実測値はLayer 4へ、改訂・デバイス・ツールチェーン・設定に釘付けして。
+Per the *Measured, not promised* rule (see README), pull requests adding forward-looking resource figures to any document will be declined. Measured figures belong in Layer 4, pinned to revision, device, toolchain, and configuration. Quoting **published, version-pinned measured figures from other repositories** (e.g., PTSG-Core's own trace) is permitted — such quotations are historical record, not forward-looking claims (ruled 2026-07-12). / *約束せず、測って刻む*規則により、前方宣言的リソース数値を文書に加えるPRは却下される。実測値はLayer 4へ、改訂・デバイス・ツールチェーン・設定に釘付けして。**他リポジトリの公開済み・版釘付けの実測値の引用**（例: PTSG-Core自身のトレース）は可——それは歴史的記録であって前方宣言ではない（2026-07-12裁定）。
