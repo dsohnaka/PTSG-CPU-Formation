@@ -105,7 +105,7 @@ This repository is in the **launch phase** — the same shape in which PTSG-Core
 - ✅ Repository structure established / リポジトリ構造の確立
 - ✅ ISA deliberation worksheet v0.3 (modes 1–3; split-stack doctrine; read-only quartet) / ISA協議作業物 v0.3（モード1〜3;スタック二分教義;読出し専用カルテット）
 - 🔄 Layer 1 Chapter 1 (Scope and Design Philosophy, incl. the computability audit) / 第1層第1章（スコープと設計哲学、計算可能性監査を含む）— in preparation
-- 🔄 Layer 2 inaugural traces / 第2層の最初のトレース — in preparation
+- 🔄 Layer 2 inaugural trace `2026-07-12_ptsg-cpu-birth-from-wpms-formation-session` / 第2層の最初のトレース — in preparation
 - ⏳ Layer 3 sample implementations / 第3層サンプル実装 — to come
 - ⏳ Layer 4 first measurements / 第4層の最初の実測 — to come (see *Measured, not promised*)
 
@@ -119,4 +119,4 @@ This is a living repository. All four layers accumulate over time.
 
 Architecture and all rulings: **Tsuneo Ohnaka**. Drafting support: **Claude (Anthropic)**, serving as amanuensis — in the tradition of this ecosystem, the design dialogues themselves are published as Layer 2. Spun off from PTSG-WPMS-Formation design work within [FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine) (Hackaday.io #205582); Core repository: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core).
 
-アーキテクチャと全裁定: **大中庸生**。起草支援: **Claude (Anthropic)**、祐筆として——本エコシステムの流儀に従い、設計対話そのものがLayer 2として公開される。[FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine)内のPTSG-WPMS-Formation設計作業から暖簾分け;Coreリポジトリ: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core)。
+アーキテクチャと全裁定: **大中恒夫**。起草支援: **Claude (Anthropic)**、祐筆として——本エコシステムの流儀に従い、設計対話そのものがLayer 2として公開される。[FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine)内のPTSG-WPMS-Formation設計作業から暖簾分け;Coreリポジトリ: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core)。

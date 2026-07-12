@@ -45,10 +45,11 @@ Technical-poetic, in the house style already visible in the READMEs: precise nou
 
 ## 7. Link inventory (complete; use only these)
 
-- This repository: https://github.com/dsohnaka/PTSG-CPU-Formation  *(placeholder — confirm final name/URL before publication)*
+- This repository: https://github.com/dsohnaka/PTSG-CPU-Formation  *(confirmed 2026-07-12)*
 - PTSG-Core: https://github.com/dsohnaka/PTSG-Core
 - FPGA Spectrum Engine (parent project): https://hackaday.io/project/205582-fpga-spectrum-engine
-- PTSG-Core Hackaday project: https://hackaday.io/project/205720  *(confirm)*
+- PTSG-Core Hackaday project: https://hackaday.io/project/205720
+- PTSG-CPU-Formation Hackaday project: *(dedicated project ruled 2026-07-12; URL to be added on creation — leave a visually complete but link-free mention until then)*
 
 ## 8. Out of scope
 
