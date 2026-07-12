@@ -124,9 +124,9 @@ The condition, meanwhile, stays outside: the datapath publishes its ALU flags as
 
 **表がRTLに先行する（F-F8）。** いかなる命令も、そのCommand × Phase行——3帯域・全列——が書かれ裁定されるまで存在しない。挙動表は同時に、仕様であり、検証項目表であり、LLM協働者への翻訳契約である。決定記帳はCoreの慣例に従う: Fixed/Proposed決定はF-F*、TieはF-T*;Tieは証明された必要によってのみ解決され、便宜によっては決して解決されない;Implementation Arenaは実装に意図的に残された自由を標す。
 
-**Measured, not promised.** Resource figures appear in this repository **only** in Layer 4, as measurements pinned to a named revision, device, toolchain version, and synthesis configuration. No forward-looking resource figure is stated in any document. A growing formation is a living body: it gets a growth record, never a weight promise — while the frozen Core traces its own figures version by version in its own repository. Two rules, one principle: numbers exist only pinned to measured versions.
+**Measured, not promised.** Resource figures appear in this repository **only** in Layer 4, as measurements pinned to a named revision, device, toolchain version, and synthesis configuration. No forward-looking resource figure is stated in any document. A growing formation is a living body: it gets a growth record, never a weight promise — while the frozen Core traces its own figures version by version in its own repository. Quoting published, version-pinned measured figures from other repositories is permitted — historical record, not forward-looking claim (ruled 2026-07-12). Two rules, one principle: numbers exist only pinned to measured versions.
 
-**約束せず、測って刻む。** リソース数値は本リポジトリでは**Layer 4にのみ**、命名された改訂・デバイス・ツールチェーン版・合成設定に釘付けされた実測として現れる。前方宣言的なリソース数値はいかなる文書にも書かれない。成長するFormationは生体である: 成長記録は持つが、体重の約束はしない——一方、凍結されたCoreは自らのリポジトリで版ごとに数値をトレースする。二つの規則、一つの原理: 数字は測られた版に釘付けされた形でしか存在しない。
+**約束せず、測って刻む。** リソース数値は本リポジトリでは**Layer 4にのみ**、命名された改訂・デバイス・ツールチェーン版・合成設定に釘付けされた実測として現れる。前方宣言的なリソース数値はいかなる文書にも書かれない。成長するFormationは生体である: 成長記録は持つが、体重の約束はしない——一方、凍結されたCoreは自らのリポジトリで版ごとに数値をトレースする。他リポジトリの公開済み・版釘付け実測値の引用は可——歴史的記録であって前方宣言ではない（2026-07-12裁定）。二つの規則、一つの原理: 数字は測られた版に釘付けされた形でしか存在しない。
 
 **AI-affinity as a ruling touchstone.** Inherited from the Core's design philosophy and adopted here as an explicit weight on every Tie: the specification must remain regenerable — a reader, human or model, holding only this repository, should be able to rebuild the Formation and arrive somewhere recognizably equivalent.
 
