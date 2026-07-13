@@ -117,6 +117,6 @@ This is a living repository. All four layers accumulate over time.
 
 ## Provenance / 来歴
 
-Architecture and all rulings: **Tsuneo Ohnaka**. Drafting support: **Claude (Anthropic)**, serving as amanuensis — in the tradition of this ecosystem, the design dialogues themselves are published as Layer 2. Spun off from PTSG-WPMS-Formation design work within [FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine) (Hackaday.io #205582); Core repository: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core).
+Architecture and all rulings: **Tsuneo Ohnaka**. Drafting support: **Claude (Anthropic)**, serving as amanuensis — in the tradition of this ecosystem, the design dialogues themselves are published as Layer 2. Spun off from PTSG-WPMS-Formation design work within [FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine) (Hackaday.io #205582); Core repository: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core); this project on Hackaday.io: [PTSG-CPU-Formation](https://hackaday.io/project/206144-ptsg-cpu-formation).
 
-アーキテクチャと全裁定: **大中庸生**。起草支援: **Claude (Anthropic)**、祐筆として——本エコシステムの流儀に従い、設計対話そのものがLayer 2として公開される。[FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine)内のPTSG-WPMS-Formation設計作業から暖簾分け;Coreリポジトリ: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core)。
+アーキテクチャと全裁定: **大中恒夫**。起草支援: **Claude (Anthropic)**、祐筆として——本エコシステムの流儀に従い、設計対話そのものがLayer 2として公開される。[FPGA Spectrum Engine](https://hackaday.io/project/205582-fpga-spectrum-engine)内のPTSG-WPMS-Formation設計作業から暖簾分け;Coreリポジトリ: [PTSG-Core](https://github.com/dsohnaka/PTSG-Core);本プロジェクトのHackaday.io: [PTSG-CPU-Formation](https://hackaday.io/project/206144-ptsg-cpu-formation)。
